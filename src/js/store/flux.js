@@ -1,62 +1,50 @@
 const getState = ({ getStore, getActions, setStore }) => {
-	const callPeople = "https://www.swapi.tech/api/people";
-	const callPlanet = "https://www.swapi.tech/api/planets";
+    const callPeople = "https://swapi.dev/api/people/";
+    const callPlanet = "https://swapi.dev/api/planets/";
 
-	return {
-		store: {
-			planets: [],
-			people: []
-		},
-		actions: {
-			//Traer informacion de personajes del API
-			getPersonajes: async () => {
-				await fetch(callPeople, {
-					method: "GET",
-					headers: {
-						"Content-Type": "application/json",
-						Accept: "application/json"
-					}
-				})
-					.then(res => {
-						return res.json();
-					})
-					.then(data => {
-						setStore({ people: data });
-					});
-			},
-			//Traer informacion de planetas del API
-			getPlanetas: async () => {
-				await fetch(callPlanet, {
-					method: "GET",
-					headers: {
-						"Content-Type": "application/json",
-						Accept: "application/json"
-					}
-				})
-					.then(res => {
-						return res.json();
-					})
-					.then(data => {
-						setStore({ planets: data });
-					});
-			}
-		},
+    return {
+        store: {
+            planets: [],
+            people: [],
+            favoritos: []
+        },
+        actions: {
+            //Traer informacion de personajes del API
+            getPersonajes: async () => {
+                await fetch(callPeople)
+                    .then(res => res.json())
+                    .then(data => console.log(data))
+                    .catch(err => console.error(err))
+                    setStore({ people: data.results })
+            },
 
-		changeColor: (index, color) => {
-			//get the store
-			const store = getStore();
+            //Traer informacion de planetas del API
+            getPlanetas: async () => {
+                await fetch(callPlanet)
+                    .then(res => res.json())
+                    .then(data => console.log(data))
+                    .catch(err => console.error(err))
+                    setStore({ planets: data.results })				
+            },
 
-			//we have to loop the entire demo array to look for the respective index
-			//and change its color
-			const demo = store.demo.map((elm, i) => {
-				if (i === index) elm.background = color;
-				return elm;
-			});
+            // changeColor: (index, color) => {
+            // 	//get the store
+            // 	const store = getStore();
 
-			//reset the global store
-			setStore({ demo: demo });
-		}
-	};
-};
+            // 	//we have to loop the entire demo array to look for the respective index
+            // 	//and change its color
+            // 	const demo = store.demo.map((elm, i) => {
+            // 		if (i === index) elm.background = color;
+            // 		return elm;
+            // 	});
 
-export default getState;
+            // 	//reset the global store
+            // 	setStore({ demo: demo });
+            // }
+
+            //crear funcion para agregar y quitar favoritos para people and planets, boton, onclick
+        }
+
+    };
+
+    export default getState;
