@@ -3,10 +3,10 @@ import PropTypes from "prop-types";
 import { Link, useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
 
-export const PerInfo = props => {
+export const PlaInfo = props => {
 	const { store, actions } = useContext(Context);
 	const params = useParams();
-	const personaje = store.people[params.id];
+	const planeta = store.planets[params.id];
 
 	return (
 		<div className="container">
@@ -20,7 +20,7 @@ export const PerInfo = props => {
 						/>
 					</div>
 					<div className="col text-center text-light">
-						<h1 className="display-4">{personaje.name}</h1>
+						<h1 className="display-4">{store.planets[params.id].name}</h1>
 						<p>
 							It is a long established fact that a reader will be distracted by the readable content of a
 							page when looking at its layout. The point of using Lorem Ipsum is that it has a
@@ -34,36 +34,23 @@ export const PerInfo = props => {
 				<div className="row">
 					<div className="col text-center text-light">
 						<span className="d-block">Name:</span>
-						<span className="d-block">{personaje.name}</span>
+						<span className="d-block">{planeta.name}</span>
 					</div>
 					<div className="col text-center text-light">
-						<span className="d-block">Birth Year:</span>
-						<span className="d-block">{personaje.birth_year}</span>
+						<span className="d-block">Poblacion:</span>
+						<span className="d-block">{planeta.population}</span>
 					</div>
 					<div className="col text-center text-light">
-						<span className="d-block">Gender:</span>
-						<span className="d-block">{personaje.gender}</span>
-					</div>
-
-					<div className="col text-light">
-						<span className="d-block text-light">Height:</span>
-						<span className="d-block">{personaje.height}</span>
-					</div>
-					<div className="col text-light">
-						<span className="d-block">Skin Color:</span>
-						<span className="d-block">{personaje.skin_color}</span>
-					</div>
-					<div className="col text-light">
-						<span className="d-block">Eyes color:</span>
-						<span className="d-block">{personaje.eye_color}</span>
+						<span className="d-block">Terreno:</span>
+						<span className="d-block">{planeta.terrain}</span>
 					</div>
 				</div>
 			</>
 
 			<div className="container mt-3">
-				<Link to="/people/">
+				<Link to="/planets/">
 					<span className="btn btn-primary btn-lg" href="#" role="button">
-						Personajes
+						Planetas
 					</span>
 				</Link>
 			</div>
@@ -71,6 +58,6 @@ export const PerInfo = props => {
 	);
 };
 
-PerInfo.propTypes = {
+PlaInfo.propTypes = {
 	match: PropTypes.object
 };
