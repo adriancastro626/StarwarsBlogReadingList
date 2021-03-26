@@ -5,7 +5,7 @@ import ScrollToTop from "./component/scrollToTop";
 import { Home } from "./views/home";
 import { People } from "./views/people";
 import { Planets } from "./views/planets";
-import { Character } from "./views/pepDet";
+import { PerInfo } from "./views/pepDet";
 import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar";
@@ -18,7 +18,7 @@ const Layout = () => {
 	const basename = process.env.BASENAME || "";
 
 	return (
-		<div className="d-flex flex-column">
+		<div className="d-flex flex-column" id="#body">
 			<BrowserRouter basename={basename}>
 				<ScrollToTop>
 					<Navbar />
@@ -30,7 +30,7 @@ const Layout = () => {
 							<People />
 						</Route>
 						<Route exact path="/pepDet/:id">
-							<People />
+							<PerInfo />
 						</Route>
 						<Route exact path="/planets/:id?">
 							<Planets />

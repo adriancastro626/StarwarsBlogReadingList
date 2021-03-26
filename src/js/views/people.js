@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
-import { Link } from "react-router-dom";
-
+import PropTypes from "prop-types";
+import { Link, useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
 
 import "../../styles/demo.scss";
@@ -11,7 +11,7 @@ export const People = () => {
 	return (
 		<>
 			<div className="container">
-				<h1 className="mt-3 text-center">PERSONAJES</h1>
+				<h1 className="mt-3 text-center text-light">PERSONAJES</h1>
 				<div className="card-columns">
 					{store.people.map((item, index) => {
 						return (
@@ -29,11 +29,10 @@ export const People = () => {
 										<span className="d-block">Color Cabello: {item.hair_color}</span>
 										<span className="d-block">Color de Ojos: {item.eye_color}</span>
 									</p>
-									{/* <Link to={"/people/" + index}>
-									<button onClick={() => actions.addPeopleFav(index)} className="btn btn-primary">
-										Aprender Mas!
-									</button>
-								</Link> */}
+
+									<Link to={"/pepDet/" + index}>
+										<button className="btn btn-primary">Aprender Mas!</button>
+									</Link>
 								</div>
 							</div>
 						);
