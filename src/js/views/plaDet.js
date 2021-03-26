@@ -15,12 +15,12 @@ export const PlaInfo = props => {
 					<div className="col">
 						<img
 							className="card-img-top"
-							src="https://cloudfront-eu-central-1.images.arcpublishing.com/prisa/F5WLPTN4WBFAPIWQOLLVAV6TEM.jpg"
+							src="https://www.wallpapertip.com/wmimgs/26-264661_planet-explosion-star-wars.jpg"
 							alt="Card image cap"
 						/>
 					</div>
 					<div className="col text-center text-light">
-						<h1 className="display-4">{store.planets[params.id].name}</h1>
+						<h1 className="display-4">{planeta.name}</h1>
 						<p>
 							It is a long established fact that a reader will be distracted by the readable content of a
 							page when looking at its layout. The point of using Lorem Ipsum is that it has a

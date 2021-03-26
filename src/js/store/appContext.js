@@ -37,7 +37,7 @@ const injectContext = PassedComponent => {
 			} else {
 				state.actions.setLocalStorage(
 					localStorage.getItem("people"),
-					localStorage.getItem("planet"),
+					localStorage.getItem("planets"),
 					localStorage.getItem("favorites")
 				);
 			}

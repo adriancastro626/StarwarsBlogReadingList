@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
-import { Link } from "react-router-dom";
-
+import PropTypes from "prop-types";
+import { Link, useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
 
 import "../../styles/demo.scss";
@@ -14,7 +14,7 @@ export const Planets = () => {
 			<div className="card-columns">
 				{store.planets.map((item, index) => {
 					return (
-						<div className="card" key={index}>
+						<div className="card" key={index} style={{ width: 18 + "rem" }}>
 							<img
 								className="card-img-top"
 								src="https://exoplanets.nasa.gov/internal_resources/116"
@@ -27,10 +27,22 @@ export const Planets = () => {
 									<span className="d-block">Poblacion: {item.population}</span>
 									<span className="d-block">Terreno: {item.terrain}</span>
 								</p>
-
-								<Link to={"/plaDet/" + index}>
-									<button className="btn btn-primary">Aprender Mas!</button>
-								</Link>
+								<div className="row">
+									<div className="col">
+										<Link to={"/plaDet/" + index}>
+											<button className="btn btn-primary">Mas!</button>
+										</Link>
+									</div>
+									<div className="col text-right">
+										<button
+											onClick={() => {
+												actions.addPlanetFavorite(index);
+											}}
+											className="btn btn-primary">
+											<i className="bi bi-heart" />
+										</button>
+									</div>
+								</div>
 							</div>
 						</div>
 					);

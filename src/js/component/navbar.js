@@ -56,10 +56,10 @@ export const Navbar = () => {
 						aria-haspopup="true"
 						aria-expanded="false">
 						Favorites
-						<span className="badge badge-light">{store.favorites}</span>
+						<span className="badge badge-light">{store.favorites.length}</span>
 					</button>
 					<div className="dropdown-menu text-center" aria-labelledby="dropdownMenuButton">
-						{store.favorites > 0 ? (
+						{store.favorites.length > 0 ? (
 							store.favorites.map((item, index) => {
 								return (
 									<a

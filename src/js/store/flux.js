@@ -6,7 +6,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 		store: {
 			planets: [],
 			people: [],
-			favoritos: []
+			favorites: []
 		},
 		actions: {
 			//agregar al local storage
@@ -80,21 +80,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 				setStore(store);
 				localStorage.setItem("favorites", JSON.stringify({ favorites: store.favorites }));
 			}
-
-			// changeColor: (index, color) => {
-			// 	//get the store
-			// 	const store = getStore();
-
-			// 	//we have to loop the entire demo array to look for the respective index
-			// 	//and change its color
-			// 	const demo = store.demo.map((elm, i) => {
-			// 		if (i === index) elm.background = color;
-			// 		return elm;
-			// 	});
-
-			// 	//reset the global store
-			// 	setStore({ demo: demo });
-			// }
 
 			//crear funcion para agregar y quitar favoritos para people and planets, boton, onclick
 		}
