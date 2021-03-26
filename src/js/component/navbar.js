@@ -17,19 +17,6 @@ export const Navbar = () => {
 					/>
 				</span>
 			</Link>
-
-			{/* <div className="collapse navbar-collapse ml-5" id="navbarNavAltMarkup">
-				<div className="navbar-nav">
-					<Link to="/">
-						<button className="btn btn-warning">Characters</button>
-					</Link>
-
-					<Link to="/planets">
-						<button className="btn btn-warning ml-2">Planets</button>
-					</Link>
-				</div>
-			</div> */}
-
 			<div className="btn-group btn-group-toggle btn-sm">
 				<div className="ml-auto">
 					<Link to="/">
@@ -83,5 +70,3 @@ export const Navbar = () => {
 		</nav>
 	);
 };
-
-//agregar length
