@@ -7,6 +7,7 @@ import { People } from "./views/people";
 import { Planets } from "./views/planets";
 import { PerInfo } from "./views/pepDet";
 import { PlaInfo } from "./views/plaDet";
+import { Login } from "./views/login";
 import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar";
@@ -26,6 +27,9 @@ const Layout = () => {
 					<Switch>
 						<Route exact path="/">
 							<Home />
+						</Route>
+						<Route exact path="/login/">
+							<Login />
 						</Route>
 						<Route exact path="/people/">
 							<People />
